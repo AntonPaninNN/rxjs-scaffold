@@ -1,0 +1,36 @@
+{
+  "name": "rxjs-scaffold",
+  "version": "1.0.0",
+  "description": "Simple examples of rxjs lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "webpack && webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonPaninNN/rxjs-scaffold.git"
+  },
+  "keywords": [
+    "rxjs",
+    "js",
+    "javascript",
+    "reactive"
+  ],
+  "author": "Anton Panin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonPaninNN/rxjs-scaffold/issues"
+  },
+  "homepage": "https://github.com/AntonPaninNN/rxjs-scaffold#readme",
+  "devDependencies": {
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "rxjs": "^6.2.0",
+    "rxjs-compat": "^6.2.0"
+  }
+}
