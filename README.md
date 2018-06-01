@@ -44,3 +44,16 @@
 <code> next: 4 </code><br>
 <code> next: 5 </code><br>
 <code> completed </code><br>
+
+## 3. Observable.fromEvent - allows to create data source from events like click, mouse move, e.t.c:
+
+```javascript
+    Observable.fromEvent(window, 'click')
+        .subscribe((item) => {
+            console.log("Next: %s", item);
+        }, (error) => {
+            console.log("Error: %s", error);
+        }, () => {
+            console.log("Completed!");
+        });
+```
