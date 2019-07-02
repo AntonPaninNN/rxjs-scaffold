@@ -105,3 +105,41 @@ Observable.interval(2000).timeInterval().take(10).subscribe((value) => {
 <code>{value: 8, interval: 2005}</code><br>
 <code>{value: 9, interval: 1995}</code><br>
 <code>Completed!</code><br>
+
+## 6. mergeMap / flatMap. Process inner and outer observables every time as they emit any value:
+
+```javascript
+fromEvent(document, "click").pipe(
+        mergeMap(() => interval(1000)),
+        filter((value) => value % 2 === 0)
+    ).subscribe((value) => {
+        console.log(value);
+    });
+```
+
+### As a result every click will start new interval sequence and all they will fire in parallel.
+
+## 7. switchMap completes inner observable when the outer one just fire:
+
+```javascript
+fromEvent(document, 'click')
+  .pipe(
+    switchMap(() => interval(1000))
+  )
+  .subscribe(console.log);
+```
+### Every time when "click" is performed the inner observable start counting again.
+
+## 8. concatMap - outer observable just waiting until the inner one finished and next prolong processing event from the outer one:
+
+```javascript  
+fromEvent(document, "click").pipe(
+        filter(() => {
+            console.log("click");
+            return true;
+        }),
+        concatMap(() => interval(1000).take(7))
+    ).subscribe((value) => {
+        console.log(value);
+    });
+```
